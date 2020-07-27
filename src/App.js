@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import "./App.css";
+import Search from "./components/Search";
+import emoji from "./emoji.json";
+import Lines from "./components/Lines";
 
 function App() {
+  const [search, setSearch] = useState("");
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div>
+      <header>
+        <Search search={search} setSearch={setSearch}></Search>
       </header>
+
+      <main>
+        {emoji.map((elem, index) => {
+          // console.log(elem);
+          const tab = [];
+          if (elem.keywords.indexOf(search.toLocaleLowerCase()) !== -1) {
+            tab.push(<Lines key={index} elem={elem} />);
+          }
+          return tab;
+        })}
+      </main>
     </div>
   );
 }
-
 export default App;
