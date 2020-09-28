@@ -4,9 +4,9 @@ const Lines = ({ elem }) => {
   // console.log(elem.symbol);
 
   return (
-    <p>
-      {elem.symbol}
-      {elem.title}
+    <p className="emoji-container">
+      <span> {elem.symbol}</span>
+      <span>{elem.title}</span>
     </p>
   );
 };

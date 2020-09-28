@@ -6,6 +6,7 @@ const Search = ({ search, setSearch }) => {
     <>
       <img src={emot} alt="title"></img>
       <input
+        placeholder="Do your research"
         type="text"
         value={search}
         onChange={(event) => {
